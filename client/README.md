@@ -1,19 +1,26 @@
-Get-ChildItem -Recurse -File | Where-Object { 
-     $_.FullName -notmatch "node_modules|\.git|dist|build|uploads|scripts|README.md" -and 
-     $_.Extension -notmatch "\.png|\.jpg|\.jpeg|\.gif|\.svg|\.log|\.pdf" -and
-     $_.Name -notmatch "package-lock|yarn\.lock|\.env"
- } | ForEach-Object {
-     "========================================" | Out-File "code.txt" -Append
-     "FILE: $($_.FullName.Replace($PWD.Path + '\', ''))" | Out-File "code.txt" -Append
-     "========================================" | Out-File "code.txt" -Append
-     "" | Out-File "code.txt" -Append
-     Get-Content $_.FullName -Raw | Out-File "code.txt" -Append
-     "" | Out-File "code.txt" -Append
-     "" | Out-File "code.txt" -Append
-     Write-Host "✓ $($_.Name)" -ForegroundColor Green
- }
- Write-Host "n✅ DONE! Check code.txt"
+# To-Do App
 
+A full-stack task management app with day/week views, priority tags, search, and swipe-to-delete — built with React (Vite + Tailwind) on the frontend and Express + MongoDB on the backend.
 
+## Live Demo
 
- adarshkishaadi@gmail.com
+- Frontend: https://todo-app-one-indol-46.vercel.app
+- Backend API: https://todo-app-djk0.onrender.com/api
+
+## Tech Stack
+
+**Frontend:** React 19, React Router, Tailwind CSS, Axios, Lucide Icons  
+**Backend:** Node.js, Express, MongoDB (Mongoose)  
+**Deployment:** Vercel (client) + Render (server) + MongoDB Atlas
+
+## Features
+
+- Add, edit, delete, and toggle tasks (In Progress / Completed)
+- Daily task view with week strip navigation
+- Weekly stats (completed vs pending, progress bar)
+- All Tasks page grouped by week
+- Search tasks by title/description
+- Priority levels (Low, Medium, High)
+- Swipe-to-delete on mobile
+- Toast notifications for actions
+
